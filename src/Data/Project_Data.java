@@ -1,5 +1,6 @@
 package Data;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 public class Project_Data {
     ArrayList<String> Ptitle = new ArrayList<String>();
     ArrayList<String> Pcontent = new ArrayList<String>();
-    boolean[] isProject;
+    boolean[] Project;
+
 
     public Project_Data(){
         Ptitle.add("G01 苛薄蚊的煩惱");
@@ -43,16 +45,26 @@ public class Project_Data {
         Pcontent.add("G14 張榛栩　張湞甯　林妤臻　陳欣媛　王柏森");
         Pcontent.add("G15 邱伊辰　王柏皓　謝佳哲　莊孟修");
 
-        isProject = new boolean[]{
-                true, true, true
-        }
+        Project = new boolean[]{
+                true,  true,  true,  true,  true,
+                true, false, false,  true, false,
+               false, false,  true, false,  true,
+        };
     }
 
     public String getTitle(int i){
-        return Ptitle.get(i + 1);
+        return Ptitle.get(i - 1);
     }
 
     public String getContent(int i){
-        return Pcontent.get(i + 1);
+        return Pcontent.get(i - 1);
+    }
+
+    public boolean isProject(int i){
+        return Project[i - 1];
+    }
+
+    public ImageIcon genHead(String filename){
+        return new ImageIcon("./src/Data/Cover/" + filename);
     }
 }

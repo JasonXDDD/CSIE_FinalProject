@@ -1,5 +1,7 @@
 package Public_Class;
 
+import Data.Project_Data;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.CropImageFilter;
@@ -87,7 +89,7 @@ public class ImageProcess {
         return x;
     }
 
-    public static ImageIcon imageLoader(String filename){
-        return new ImageIcon(ClassLoader.class.getResource("Data/Cover/" + filename));
+    public static String imageLoader(String filename){
+        return Project_Data.class.getResource("Cover/") + filename;
     }
 }

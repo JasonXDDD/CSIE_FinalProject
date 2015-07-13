@@ -28,23 +28,28 @@ public class GUIFrame extends JFrame implements ActionListener{
     private ImageIcon head;
     private Project_Data pData;
 
+    private JLabel BackGround;
+    private JLayeredPane layeredPane;
+
     private ImageProcess imageProcess;
 
     public GUIFrame(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1920, 1080);
+        this.setSize(1200, 900);
         this.setLayout(new BorderLayout());
         imageProcess = new ImageProcess();
+        layeredPane = this.getLayeredPane();
         pData = new Project_Data();
 
-        btn_pn = new JPanel(new GridLayout(17, 1, 20, 20));
+        btn_pn = new JPanel(new GridLayout(17, 1, 17, 17));
         btn_pn.setOpaque(false);
 
         lbl = new JLabel("103 資工一B JAVA 期末報告");
+        lbl.setHorizontalAlignment(JLabel.CENTER);
         lbl.setFont(new Font("微軟正黑體", Font.BOLD, 16));
         btn_pn.add(lbl);
 
-        lbl = new JLabel("==============================");
+        lbl = new JLabel("=======================");
         btn_pn.add(lbl);
 
         btn_pn.setBounds(0, 0, 200, 1000);
@@ -63,21 +68,29 @@ public class GUIFrame extends JFrame implements ActionListener{
         cardLayout = new CardLayout();
         east_pn = new JPanel(cardLayout);
         genShowPanel();
+        cardLayout.show(east_pn, "G1");
+        this.getContentPane().add(east_pn, BorderLayout.CENTER);
+
     }
 
     public void genShowPanel(){
         for(int i = 1; i <= 15; i++){
-            head = imageProcess.imageLoader("G" + i + ".png");
             showPanel = new ShowPanel(pData.getTitle(i),
                                       pData.getContent(i),
-                                      head,
-                                        )
+                                      pData.genHead("G" + i + ".png"),
+                                      pData.isProject(i));
+            east_pn.add(showPanel, "G" + i);
         }
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        for(int i = 1; i <= 15; i++){
+            if(e.getActionCommand() == "Group " + i){
+                System.out.println(e.getActionCommand());
+            }
+        }
 
     }
 }
