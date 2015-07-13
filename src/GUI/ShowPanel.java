@@ -18,6 +18,7 @@ public class ShowPanel extends JPanel{
     private ImageIcon Pic;
     private Font font;
 
+
     private ImageProcess imageProcess;
 
     public ShowPanel(String title, String content, ImageIcon pic, boolean isProject){

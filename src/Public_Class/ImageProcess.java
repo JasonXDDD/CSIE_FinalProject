@@ -86,4 +86,8 @@ public class ImageProcess {
 
         return x;
     }
+
+    public static ImageIcon imageLoader(String filename){
+        return new ImageIcon(ClassLoader.class.getResource("Data/Cover/" + filename));
+    }
 }
