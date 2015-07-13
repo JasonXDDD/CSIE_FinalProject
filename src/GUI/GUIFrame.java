@@ -56,6 +56,7 @@ public class GUIFrame extends JFrame implements ActionListener{
         for(int i = 1; i <= 15; i++){
             btn = new JButton("Group " + i);
             btn.setFont(new Font("微軟正黑體", Font.BOLD, 20));
+            btn.addActionListener(this);
             btn_pn.add(btn);
             btnlist.add(btn);
         }
@@ -78,6 +79,7 @@ public class GUIFrame extends JFrame implements ActionListener{
             showPanel = new ShowPanel(pData.getTitle(i),
                                       pData.getContent(i),
                                       pData.genHead("G" + i + ".png"),
+                                      pData.genBackGround("G" + i + ".png"),
                                       pData.isProject(i));
             east_pn.add(showPanel, "G" + i);
         }
@@ -86,9 +88,10 @@ public class GUIFrame extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for(int i = 1; i <= 15; i++){
-            if(e.getActionCommand() == "Group " + i){
-                System.out.println(e.getActionCommand());
+        for(int i = 0; i < btnlist.size(); i++){
+            if(e.getSource() == btnlist.get(i)){
+                System.out.println(i);
+                cardLayout.show(east_pn, "G" + (i+1));
             }
         }
 

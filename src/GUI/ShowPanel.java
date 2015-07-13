@@ -19,13 +19,15 @@ public class ShowPanel extends JPanel implements ActionListener{
     private JButton Project;
     private JButton Openfile;
     private ImageIcon Pic;
+    private ImageIcon Bk;
     private Font font;
 
 
     private ImageProcess imageProcess;
 
-    public ShowPanel(String title, String content, ImageIcon pic, boolean isProject){
+    public ShowPanel(String title, String content, ImageIcon pic, ImageIcon bk, boolean isProject){
         Pic = pic;
+        Bk = bk;
         this.isProject = isProject;
         this.setLayout(null);
 
@@ -33,19 +35,18 @@ public class ShowPanel extends JPanel implements ActionListener{
         Title = new JLabel(title);
         Title.setFont(font);
         Title.setHorizontalAlignment(JLabel.LEFT);
-        Title.setBounds(50, 50, 400, 100);
-        Title.setBorder(BorderFactory.createLineBorder(Color.black));
+        Title.setBounds(50, 50, 1400, 100);
         this.add(Title);
 
 
-        font = new Font("微軟正黑體", Font.BOLD, 20);
+        font = new Font("微軟正黑體", Font.BOLD, 30);
         Content = new JLabel(content);
         Content.setFont(font);
         Content.setHorizontalAlignment(JLabel.LEFT);
-        Content.setBounds(100, 130, 500, 50);
-        Content.setBorder(BorderFactory.createLineBorder(Color.black));
+        Content.setBounds(150, 140, 1500, 50);
         this.add(Content);
 
+        font = new Font("微軟正黑體", Font.BOLD, 25);
         Project = new JButton("Project");
         Project.setBackground(Color.WHITE);
         Project.setFont(font);
@@ -64,11 +65,11 @@ public class ShowPanel extends JPanel implements ActionListener{
         Head = new JLabel(Pic);
         Head.setBounds(80, 310, 800, 600);
         Head.setVerticalAlignment(JLabel.TOP);
-        Head.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         this.add(Head);
 
-        Pic = imageProcess.scaleImage(Pic, 900, imageProcess.Width);
-        BackGround = new JLabel(Pic);
+        Bk = imageProcess.scaleImage(Bk, 900, imageProcess.Width);
+        BackGround = new JLabel(Bk);
+        BackGround.setHorizontalAlignment(JLabel.LEFT);
         BackGround.setBounds(0, 0, 1200, 900);
         this.add(BackGround);
     }

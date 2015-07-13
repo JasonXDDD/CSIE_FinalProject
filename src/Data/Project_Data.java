@@ -67,4 +67,8 @@ public class Project_Data {
     public ImageIcon genHead(String filename){
         return new ImageIcon("./src/Data/Cover/" + filename);
     }
+
+    public ImageIcon genBackGround(String filename){
+        return new ImageIcon("./src/Data/BackGround/" + filename);
+    }
 }
