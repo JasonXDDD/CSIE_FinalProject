@@ -4,6 +4,7 @@
 .mtj.tmp/
 
 # Package Files #
+*.xml
 *.war
 *.ear
 
@@ -57,4 +58,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-.idea/workspace.xml
+.idea/*
+*.xml
+.idea/misc.xml
